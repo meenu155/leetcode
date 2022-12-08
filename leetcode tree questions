@@ -13,3 +13,23 @@ def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> b
         solve(root1,l)
         solve(root2,a)
         return  l==a
+  
+  /113. Path Sum II
+   def pathSum(self, root: Optional[TreeNode], target: int) -> List[List[int]]: 
+        ans=[]
+        l=[]
+        def solve(a,s,l):
+            print(l,s)
+            if a==None:
+                return
+            l.append(a.val) 
+            s=s-a.val
+            if a.left==None and a.right==None and s==0:
+                ans.append(l.copy())
+                print(l,s)
+                l.pop()
+                return
+            solve(a.left,s,l.copy())
+            solve(a.right,s,l.copy())
+        solve(root,target,l)
+        return ans
