@@ -1,3 +1,4 @@
+/872. Leaf-Similar Trees
 def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
         l=[]
         a=[]
