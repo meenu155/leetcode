@@ -1,0 +1,14 @@
+def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        l=[]
+        a=[]
+        def solve(r,l):
+            if r==None:
+                return
+            if r.left==None and r.right==None:
+                l.append(r.val)
+                return 
+            solve(r.left,l)
+            solve(r.right,l)
+        solve(root1,l)
+        solve(root2,a)
+        return  l==a
