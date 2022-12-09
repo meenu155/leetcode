@@ -33,3 +33,24 @@ def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> b
             solve(a.right,s,l.copy())
         solve(root,target,l)
         return ans
+/1026 -maximum-difference-between-node-and-ancestor
+        def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+        ans=[]
+        minn=[]
+        maxx=[]
+        minn.append(float("inf"))
+        maxx.append(float("-inf"))
+        def solve(a,minn,maxx):
+            if a==None :    
+                print(minn,maxx)           
+                ans.append(abs(maxx[0]-minn[0]))
+                return
+            minn[0]=min(minn[0],a.val)
+            maxx[0]=max(maxx[0],a.val)
+            solve(a.left,minn.copy(),maxx.copy())
+            minn[0]=min(minn[0],a.val)
+            maxx[0]=max(maxx[0],a.val)
+            solve(a.right,minn,maxx)
+        solve(root,minn,maxx)
+        print(ans)
+        return max(ans)
