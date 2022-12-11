@@ -54,3 +54,11 @@ def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> b
         solve(root,minn,maxx)
         print(ans)
         return max(ans)
+/104 maximum depth of binary tree
+def dfs(root):
+            if root==None:
+                return 0
+            l=dfs(root.left)
+            r=dfs(root.right)
+            return 1+max(l,r)
+        return dfs(root)
